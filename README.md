@@ -21,7 +21,14 @@ The simple `Play` item chooses you base or non-alternate version table. You must
 
 *This has not been extensively tested (2021/02/22) on any systems but my own.*
 
-Drop the `two-tables-one-wheel.js` into your `PinballY\Scripts` directory. Once you have done that, restart PinballY and you should be ready to start setting up your tables and their alternates.
+Drop the `two-tables-one-wheel.js` into your `PinballY\Scripts` directory and add the following to your `PinballY\Scripts\main.js` to enable:
+
+```
+// Alternate tables under one wheel icon
+import "two-tables-one-wheel.js"; 
+```
+
+Once you have done that, restart PinballY and you should be ready to start setting up your tables and their alternates.
 
 ## Default Table Setup
 

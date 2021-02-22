@@ -9,8 +9,9 @@ There are a few tables that have multiple versions and I did not want to install
 
 ```
      Play
-     Play Knorr Version
-     Play Hannibal Version
+     Play Hanibal Version
+     Play Remake Version
+     Play Tom Tower Version
      Play Pinball FX3 Version
 ```
 
@@ -30,13 +31,22 @@ You have to set up your tables first. Choose one, your favorite as the *default*
 
 Set up your alternate tables just like any other table in PinballY. Add all the same details, table videos, wheel logo, etc. as any other (and your default) table. They can be the same or different from the default table at your choosing. You will see these tables media items when you launch the table so it is nice to have them set. Also, you will be able to see these tables when `Show Alternate Versions` is selected in the `Operator Menu` (see below).
 
-To make this script work properly, your alternate tables **must have the same base name as your default table** in PinballY, followed by the version name in parenthesis and then the (manufacturer year) label. This is *not* the file name, but PinballY's name/title/description of the table. If you poke at the XML it's the `<description>` element.
+To make this script work properly, your alternate tables **must have the same base name as your default table** in PinballY, followed by the version name in parenthesis and then the (manufacturer year) label. This is *not* the file name, but PinballY's name/title/description of the table. If you poke at the XML it's the `<description>` element. The text must match up to the second to last item in parenthesis.
 
-Back to my example:
+For example with AC/DC's LUCI table, you could have two versions; the standard version, and the *adult* version. The first item is the default and the adult version is the alternate version that can be chosen from the Play menu. Note the `(Adult)`. This is what will get used to display on the Play menu as `Play Adult Version`. It's the second to last parenthetical.
+
+```
+     AC-DC (LUCI Premium) (Williams 1997)
+     AC-DC (LUCI Premium) (Adult) (Williams 1997)
+```
+
+In the earlier Medieval Madness example, my tables look like this:
+
 ```
 	Medieval Madness (Williams 1997)
-	Medieval Madness (Knorr) (Williams 1997)
-	Medieval Madness (Hannibal) (Williams 1997)
+	Medieval Madness (Hanibal) (Williams 1997)
+	Medieval Madness (Remake) (Chicago Gaming Company 2015)
+	Medieval Madness (Tom Tower) (Williams 1997)
 	Medieval Madness (Williams 1997)
 ```
 
@@ -44,13 +54,19 @@ Note that last one. The name is identical to the default first one. There's a li
 
 For each of your alternate tables you also need to assign them the category `isAlternateVersion`. You should do this using the PinballY user interface, under edit game, select categories. These are the normal PinballY categories. The category (or tag) serves two purposes:
 
-1. There is a *metafilter* added that hides/shows alternate version tables from the main menu. This can be enabled/disabled in the Operator Menu. If `Show Alternate Versions` is on, then all tables, inclding the alternate versions will appear on the wheel (use this mode to configure the alternate versions). If `Show Alternate Versions` is off then you will only see one wheel item for each of your default tables. The alternate versions will appear in the `Play` menu in both cases.
+1. There is a *metafilter* added that hides/shows alternate version tables from the main menu. This can be enabled/disabled in the Operator Menu. If `Show Alternate Versions` is on, then all tables, including the alternate versions will appear on the wheel (use this mode to configure the alternate versions). If `Show Alternate Versions` is off then you will only see one wheel item for each of your default tables. The alternate versions will appear in the `Play` menu in both cases.
 
 2. The category is used to make sure we don't add the default table to the `Play` menu twice. The code only adds the tables with `isAlternateVersion` to the `Play` menu and leaves the default `Play` menu for the default table.
 
+## Thoughts
+
+You are not limited to using this for different *builds* of the same table from different table creators. You could launch different versions of a pinball title. The best example I can find with this is the *Playboy* tables where there is a 1978, 1989, and 2002 version. They are completely different tables, but they could all be launched from the same wheel if you wanted.
+
+You are not limited to using the same *system* to launch tables. The Medieval Madness example above showed how you could have Visual Pinball X as the default table and launch the Pinball FX3 version as an alternate, again both under the same wheel item.
+
 ## Issues
 
-Tables like this get mixed up and the alternates show up for both default tables. I need to tweak the finding of alternate tables code to be more precise on locating the alternate tables. Could also be solved by using my own database (csv file) of tables and their alternates.
+Tables like Playboy get mixed up and the alternates show up for both default tables. I need to tweak the finding of alternate tables code to be more precise on locating the alternate tables. Could also be solved by using my own database (csv file) of tables and their alternates.
 
 ```
 <description>Playboy (Bally 1978)</description>

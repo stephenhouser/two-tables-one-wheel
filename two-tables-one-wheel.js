@@ -131,12 +131,9 @@ mainWindow.on("menuopen", ev => {
 // Intercept command execution to handle our menu items.
 mainWindow.on("command", ev => {
     if (isAlternateVersionCommandId(ev.id)) {
-        logfile.log('Launch the game!!!');
         // Launch our alternate version of a table...
         let alternateVersionIndex = getAlternateVersionForCommandId(ev.id);
-        logfile.log('Launch the game ==> ' + alternateVersionIndex);
         let game = alternateVersions[alternateVersionIndex];
-        logfile.log('Launch the game 3 ==>' + game.title);
 		mainWindow.playGame(game);
 		ev.preventDefault();
     } else if (ev.id == alternateVersionFilterCommand) {

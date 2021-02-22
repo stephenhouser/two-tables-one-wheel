@@ -1,6 +1,8 @@
 # Two Tables, One Wheel 
 Alternate versions of a table under one wheel item in [PinballY](http://mjrnet.org/pinscape/PinballY.php).
 
+![Example Play Menu](play-menu.png)
+
 Loosely based on [Custom Play Modes](http://mjrnet.org/pinscape/downloads/PinballY/Help/CustomPlayModesExample.html) from mjr at. *And a shout out for mjr's excellent documentation. It is among the best documentation I have ever seen for an open-source project.*
 
 There are a few tables that have multiple versions and I did not want to install only one, but I also did not want multiple wheel items, all with the same picture. I really wanted something similar to a Pinup Popper example where one wheel item launches alternate versions of a table. In their example the table is copied into place (yuck). MJR's example for [Custom Play Modes](http://mjrnet.org/pinscape/downloads/PinballY/Help/CustomPlayModesExample.html) was close, but really only allowed sending different parameters to the same table. I wanted to launch an entirely different table. The way this works is to add to the Play section in the main menu with additional `Play ___ Version` items. One for each alternate version that you identify. Using this code, you could have (using Medieval Madness as an example):
